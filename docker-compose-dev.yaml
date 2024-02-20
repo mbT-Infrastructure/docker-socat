@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+
+    docker-socat:
+        container_name: docker-socat
+        build: .
+        environment:
+            - SOCAT_ARGUMENTS=TCP4-LISTEN:8000,fork,reuseaddr TCP4:google.com:80
+        ports:
+            - "8000:8000"
